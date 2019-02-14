@@ -37,20 +37,22 @@ disqus_shortname:   taylantatli
   #ad-client:
   #ad-slot:
 #bing-verify:
-#email:
-github:            https://github.com/LwMdLqq
 博客园:             https://www.cnblogs.com/md-lw/
 微博:               https://weibo.com/6407004832/profile?topnav=1&wvr=6&is_all=1
+#email:
+twitter:            https://www.cnblogs.com/md-lw/  #博客园
+facebook:           https://weibo.com/6407004832/profile?topnav=1&wvr=6&is_all=1   #微博
+github-url:         https://github.com/LwMdLqq    #github
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #linkedin:          username
 #xing:              username
-微信:               username
+instagram:          username
 #lastfm:            username
 #tumblr:            username
 #medium:            '@username'
 #pinterest:         username
 #foursquare:        username
-QQ:                 username
+steam:              username
 #dribbble:          username
 #youtube:           username
 #youtube-channel:   channel
@@ -76,5 +78,3 @@ plugins:
   - jekyll-feed
 # Exclude list
 exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
-
-theme: jekyll-theme-cayman
