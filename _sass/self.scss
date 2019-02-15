@@ -2,7 +2,7 @@
 .qq {
     position: relative;
 }
-.qq img.pic_qq {
+.qq .pic_qq {
     position: absolute;
     z-index: 99;
     width: 7.5rem;
@@ -18,7 +18,7 @@
     transition: all .4s ease-in-out;
     opacity: 0;
 }
-.qq:hover img.pic_qq {
+.qq:hover .pic_qq {
     transform: scale(1);
     opacity: 1;
 }
