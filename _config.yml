@@ -9,7 +9,7 @@ background:         'assets/img/placeholder-big.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
 url:                https://lwmdlqq.github.io/Blog/
-
+pic_qq:             'assets/img/QQ.jpg'
 # Jekyll
 permalink:          /:title/
 markdown:           kramdown
