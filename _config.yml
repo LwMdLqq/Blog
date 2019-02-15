@@ -1,7 +1,7 @@
 # Site
 title:              逍遥玩儿
-bio:                ''
-description:        "做一个善良的人，心似璞玉，可雕可琢"
+bio:                '做一个善良的人，心似璞玉，可雕可琢'
+description:        "爱折腾的天秤座"
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/1.jpg'
@@ -46,13 +46,13 @@ github-url:         LwMdLqq    #github
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #linkedin:          username
 #xing:              username
-instagram:          username
+QQ:                 username
 #lastfm:            username
 #tumblr:            username
 #medium:            '@username'
 #pinterest:         username
 #foursquare:        username
-steam:              username
+weixin:              username
 #dribbble:          username
 #youtube:           username
 #youtube-channel:   channel
