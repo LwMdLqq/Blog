@@ -37,8 +37,8 @@ comments: false
 2016年3月 —— 2018年4月    金现代信息产业股份有限公司
 
 ## 项目经验
-#### 项目名称&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;项目介绍
-* 贵州农业数据后台项目&ensp;&ensp;&ensp;&ensp;贵州农业数据后台项目主要是通过设备获取贵州基地气象站，土壤墒情，水阀的数据，展示数据以及管理数据和权限
+#### &ensp;&&ensp;&&ensp;&&ensp;&项目名称&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;项目介绍
+* 贵州农业数据后台项目&ensp;&ensp;&ensp;&ensp;贵州农业数据后台项目主要是管理贵州基地气象站，土壤墒情等的数据
 * GPS项目&ensp;&ensp;&ensp;&ensp;GPS项目主要是将光伏板和测试模块放到鸟背上，测量鸟的飞行轨迹并且获取数据
 * 机器人项目&ensp;&ensp;&ensp;&ensp;机器人项目主要是使用微信小程序控制清扫机器人行走以及查看机器设备信息
 * ......
