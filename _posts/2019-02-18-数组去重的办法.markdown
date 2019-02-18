@@ -1,0 +1,77 @@
+---
+layout: post
+title:  "数组去重的几种办法"
+date:   2019-01-30 10:58:13 +0800
+categories: jekyll update
+---
+
+## 第一种方法：
+#### 通过循环遍历数组，根据判断flag的值来确定是否将值放入到数组中
+(```)
+  // 数组去重
+  var arr = [2,5,6,3,1,2,5,6,6,5,4,8,7,7,6,5,5]
+  var newArr = []
+  // 定义flag
+  var flag
+  // 循环原始数组
+  for (var i = 0; i < arr.length; i++) {
+    // 在刚开始循环的时候，就设置flag为true,默认刚开始可以添加到新数组
+    flag = true
+    // 循环新的数组
+    for (var j = 0; j < newArr.length; j++) {
+      // 判断两个数组是否有相同的，只要有相同的，就设置flag为false
+      if (arr[i] === newArr[i]) {
+        flag = fasle
+      }
+    }
+    // 在循环完新的数组查看没有重复的就添加到新的数组中
+    if (flag) {
+      newArr.push(arr[i])
+    }
+  }
+  // 最后输出新的数组，就会去掉重复的数组
+  console.log(newArr)
+(```)
+
+## 第二种方法：
+#### 通过Es6语法进行数组去重
+(```)
+  // 数组去重
+  var arr = [2,5,6,3,1,2,5,6,6,5,4,8,7,7,6,5,5]
+  // 使用Es6 Set将数组放到Set里面
+  // Es6新增数据结构Set的用法
+  // Set和数组类似，但是它的一大特性就是所有的元素都是唯一的，没有重复，所以可以把重复的数组放到Set里面进行数组去重
+  var set =  new Set(arr)
+  // 再将Set数据结构的数据转换成数组
+  var newArr = Array.from(set)
+  // 打印输出
+  console.log(newArr)
+(```)
+
+## 第三种方法：
+#### 使用数据存储功能完成数组去重并计数的案例
+(```)
+  // 数组去重
+  var arr = [2,5,6,3,1,2,5,6,6,5,4,8,7,7,6,5,5]
+  // 建立新的数组存储数据
+  var newArr = []
+  // 建立仓库
+  var obj = {}
+  // 创建第三方变量
+  var item
+  // 循环数组,将数组里的每一个变量都拿出来检测是否存在于仓库obj里面
+  for (var i = 0; i < arr.length; i++) {
+    item = arr[i]
+    //将item作为键在仓库里面查询是否有相应的值，如果存在值则给这个值 +1 ，如果不存在值，就给这个键赋值为 1
+    if (obj[item]) {
+      obj[item]++
+    } else {
+      obj[item] = 1
+    }
+  }
+  // 对obj对象进行遍历，获取到对象的键
+  for (var key in obj) {
+    newArr.push(key)
+  }
+  console.log(newArr)
+(```)
