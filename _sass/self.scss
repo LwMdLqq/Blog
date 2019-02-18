@@ -18,6 +18,7 @@
     -webkit-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    opacity: 0;
 }
 .qq:hover .pic_qq {
     transform: scale(1);
@@ -44,6 +45,7 @@
     -webkit-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    opacity: 0;
 }
 .weixin:hover .pic_weixin {
     transform: scale(1);
