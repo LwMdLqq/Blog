@@ -7,7 +7,7 @@ categories: jekyll update
 
 ## 第一种方法：
 #### 通过循环遍历数组，根据判断flag的值来确定是否将值放入到数组中
-(```)
+```
   // 数组去重
   var arr = [2,5,6,3,1,2,5,6,6,5,4,8,7,7,6,5,5]
   var newArr = []
@@ -31,11 +31,12 @@ categories: jekyll update
   }
   // 最后输出新的数组，就会去掉重复的数组
   console.log(newArr)
-(```)
+```
 
 ## 第二种方法：
 #### 通过Es6语法进行数组去重
-(```)
+
+```
   // 数组去重
   var arr = [2,5,6,3,1,2,5,6,6,5,4,8,7,7,6,5,5]
   // 使用Es6 Set将数组放到Set里面
@@ -46,11 +47,12 @@ categories: jekyll update
   var newArr = Array.from(set)
   // 打印输出
   console.log(newArr)
-(```)
+```
 
 ## 第三种方法：
 #### 使用数据存储功能完成数组去重并计数的案例
-(```)
+
+```
   // 数组去重
   var arr = [2,5,6,3,1,2,5,6,6,5,4,8,7,7,6,5,5]
   // 建立新的数组存储数据
@@ -74,4 +76,4 @@ categories: jekyll update
     newArr.push(key)
   }
   console.log(newArr)
-(```)
+```
