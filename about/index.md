@@ -1,37 +1,55 @@
 ---
 layout: page
-title: About the Theme
+title: 个人简介
 tags: [about, Jekyll, theme, moon]
-date: 2016-03-21
+date: 2019/2/18
 comments: false
 ---
     
-<center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
+<center><a href="https://lwmdlqq.github.io/Blog"><b></b></a>踏实  努力  钻研</center>
 
-## Features
-* Minimal, you can focus on your content
-* Responsive
-* Disqus integration
-* Syntax highlighting
-* Optional post image
-* Social icons
-* Page for sharing projects
-* Optional background image
-* Simple navigation menu
-* MathJax support
+## 简介
+* 姓名：孟迪
+* 性别：女
+* 年龄：23
+* 联系电话：17601631702
+* 邮箱：ismengdi@163.com
+* 工作经验：3年
 
-## Preview
+## 专业技能
 
-{% capture images %}
+1. 熟练使用HTML、CSS，能够书写语义合理，结构清晰，易维护的页面结构，快速还原UI设计图
+2. 熟练掌握javascript语言核心DOM、BOM，闭包原理，面向对象，了解原型链的继承机制
+3. 熟悉BootStrap框架，能够使用媒体查询、rem等技术进行响应式布局适配不同移动设备
+4. 熟练掌握Ajax，能够配合后台完成页面的交互功能
+5. 熟练使用jquery, zepto等前端库
+6. 熟悉Vue框架和MVVM、MVC思想，能够运用Vue进行开发
+7. 熟练使用Echarts，搭建可视化图表 
+8. 熟悉webpack前端自动化构建工具以及Git版本管理工具
+9. 了解php后台语言，能搭建服务器进行接口测试
+10. 使用ES6语法规范代码，有轻微的代码洁癖
+11. 求知欲强，喜欢研究百度地图API文档 
+
+<!-- {% capture images %}
     https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png
     https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png
 {% endcapture %}
 {% include gallery images=images caption="Screenshots of Moon Theme" cols=2 %}
 
-See a [live version of Moon](http://taylantatli.github.io/Moon) hosted on GitHub.
+See a [live version of Moon](http://taylantatli.github.io/Moon) hosted on GitHub. -->
 
-## Getting Started
+## 工作经历
 
-To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
+### 年份                          ###公司
+2018年5月 —— 至今         北京科瑞杰科技发展有限公司
+2016年3月 —— 2018年4月    金现代信息产业股份有限公司
+
+## 项目经验
+### 项目名称                        ### 项目介绍
+* 贵州农业数据后台项目            贵州农业数据后台项目主要是通过设备获取贵州基地气象站，土壤墒情，水阀的数据，展示数据以及管理数据和权限
+* GPS项目                        GPS项目主要是将光伏板和测试模块放到鸟背上，测量鸟的飞行轨迹并且获取数据
+* 机器人项目                     机器人项目主要是使用微信小程序控制清扫机器人行走以及查看机器设备信息
+* ......
+<!-- To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
       
-[Install Moon](https://github.com/TaylanTatli/Moon){: .btn}
+[Install Moon](https://github.com/TaylanTatli/Moon){: .btn} -->
