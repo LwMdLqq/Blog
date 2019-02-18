@@ -2,7 +2,7 @@
 .qq {
     position: relative;
 }
-.qq .pic_qq {
+.qq:hover .pic_qq {
     position: absolute;
     top: 3rem;
     left: 3rem;
@@ -29,7 +29,7 @@
 .weixin {
     position: relative;
 }
-.weixin .pic_weixin {
+.weixin:hover .pic_weixin {
     position: absolute;
     top: 3rem;
     left: 3rem;
