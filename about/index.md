@@ -48,7 +48,7 @@ comments: false
 
 #### 主要技术
 
-主要使用VUE + Element-UI + axios + Echarts实现数据可视化展示
+使用VUE + Element-UI + axios + Echarts实现数据可视化展示
 
 #### 其他项目
  ......
