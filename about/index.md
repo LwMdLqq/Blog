@@ -30,26 +30,15 @@ comments: false
 10. 使用ES6语法规范代码，有轻微的代码洁癖
 11. 求知欲强，喜欢研究百度地图API文档 
 
-<!-- {% capture images %}
-    https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png
-    https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png
-{% endcapture %}
-{% include gallery images=images caption="Screenshots of Moon Theme" cols=2 %}
-
-See a [live version of Moon](http://taylantatli.github.io/Moon) hosted on GitHub. -->
-
 ## 工作经历
 
-### 年份                          ###公司
+#### 年份                          公司
 2018年5月 —— 至今         北京科瑞杰科技发展有限公司
 2016年3月 —— 2018年4月    金现代信息产业股份有限公司
 
 ## 项目经验
-### 项目名称                        ### 项目介绍
-* 贵州农业数据后台项目            贵州农业数据后台项目主要是通过设备获取贵州基地气象站，土壤墒情，水阀的数据，展示数据以及管理数据和权限
-* GPS项目                        GPS项目主要是将光伏板和测试模块放到鸟背上，测量鸟的飞行轨迹并且获取数据
-* 机器人项目                     机器人项目主要是使用微信小程序控制清扫机器人行走以及查看机器设备信息
+#### 项目名称&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;项目介绍
+* 贵州农业数据后台项目&ensp;&ensp;&ensp;&ensp;贵州农业数据后台项目主要是通过设备获取贵州基地气象站，土壤墒情，水阀的数据，展示数据以及管理数据和权限
+* GPS项目&ensp;&ensp;&ensp;&ensp;GPS项目主要是将光伏板和测试模块放到鸟背上，测量鸟的飞行轨迹并且获取数据
+* 机器人项目&ensp;&ensp;&ensp;&ensp;机器人项目主要是使用微信小程序控制清扫机器人行走以及查看机器设备信息
 * ......
-<!-- To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
-      
-[Install Moon](https://github.com/TaylanTatli/Moon){: .btn} -->
