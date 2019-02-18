@@ -32,7 +32,7 @@ comments: false
 
 ## 工作经历
 
-#### 年份&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;公司
+#### 年份&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;公司
 
 2018年5月 —— 至今         北京科瑞杰科技发展有限公司
 
