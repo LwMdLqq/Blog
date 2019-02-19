@@ -1,0 +1,112 @@
+---
+layout: post
+title:  "this的指向问题"
+date:   2019-02-19 10:58:13 +0800
+categories: jekyll update
+---
+## 第一种方法
+#### 普通函数中的this
+```
+例1：
+function a () {
+    var user = "追梦子";
+    console.log(this.user)   // undefined
+    console.log(this)       // Window
+}
+a();    // 普通函数中this指向window
+例2：
+var o = {
+    user: "追梦人",
+    fn: function () {
+        console.log(this.user)   // 追梦人
+    }
+}
+o.fn();
+例3：
+var o = {
+    a: 10,
+    b: {
+        a: 12,
+        fn: function() {
+            console.log(this.a);    // 12
+        }
+    }
+}
+o.b.fn()
+例4（注意）：
+var o = {
+    a: 10,
+    b: {
+        a: 12,
+        fn: function() {
+            console.log(this.a)   // undefined
+            console.log(this)       // Window
+        }
+    }
+}
+var j = o.b.fn
+j();
+```
+注意：在这里fn只是复制给j并没有调用,然后j在全局作用域下调用, 所以this指向window
+总结:
+    1. 首先要注意函数是在什么作用域下调用的，如果一个函数中有this,并且它没有被上一级对象所调用，那么这个this指向window
+    2. 如果一个函数中有this,且被它的上一级对象调用，此时这个this指向它的上一级对象
+    3. 如果一个函数中有this,这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向也只是它的上一级对象
+
+#### 构造函数中的this
+```
+function Fn() {
+    this.user = "账单"
+}
+var a = new Fn();
+console.log(a.user);   // 账单
+```
+总结：
+    在构造函数中, this指向创建的对象
+
+#### 当this遇上return的时候（注意）
+```
+例1：
+function fn() {
+    this.user = '账单'
+    return {};
+}
+var a = new fn;     // 如果没有参数, 创建的时候加不加括号都是一样的
+console.log(a.user)    // undefined
+
+例2：
+function fn() {
+    this.user = '账单'
+    return function (){}
+}
+var a = new fn;
+console.log(a.user)   // undefined
+
+例3：
+function fn() {
+    this.user = '账单'
+    return 1; 
+}
+var a = new fn;
+console.log(a.user)    // 账单
+
+例4：
+function fn() {
+    this.user = '账单'
+    return undefined;       // undefined是特殊的变量
+}
+var a = new fn;
+console.log(a.user)    // 账单
+
+例5：
+function fn() {
+    this.user = '账单'
+    return null
+}
+var a = new fn;
+console.log(a.user)     // 账单
+```
+总结：
+    1. 如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例
+    2. null也是对象，但是如果return返回null，this还是指向那个函数的实例
+

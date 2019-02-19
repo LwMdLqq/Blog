@@ -1,0 +1,96 @@
+---
+layout: post
+title:  "闭包"
+date:   2019-02-19 10:58:13 +0800
+categories: jekyll update
+---
+#### 原型链继承
+
+```
+// 基本类型的原型继承
+
+
+// 父类：人
+function Person () {
+    this.head = '脑袋瓜子'
+}
+// 子类：学生
+function Student(studentId) {
+    this.studentId = studentId
+}
+Student.prototype = new Person()
+
+var stu = new Student('12221');
+console.log(stu.head)   //脑袋瓜子
+// 修改学生类的head属性
+stu.head = '聪明的脑袋瓜子'
+console.log(stu.head)   // 聪明的脑袋瓜子
+
+// 重新实例化学生对象
+var stu2 = new Student('333333')
+console.log(stu2.head)  // 脑袋瓜子
+```
+总结：
+    当修改stu的head属性，重新再实例化对象，stu2的head值不变
+    因为当实例中存在和原型对象上同名的属性时，会自动屏蔽原型对象上的同名属性，stu.head = 聪明的脑袋瓜子   实际上只是给stu添加了一个本地属性head,并且设置了相关值，所以当我们打印stu.head时，访问的是该实例的本地属性，而不是原型对象上的head属性
+```
+// 引用类型的原型继承
+//父类：人
+function Person () {
+    this.head = '脑袋瓜子';
+    this.emotion = ['喜', '怒', '哀', '乐']; //人都有喜怒哀乐
+}
+//子类：学生，继承了“人”这个类
+function Student(studentID) {
+    this.studentID = studentID;
+}
+Student.prototype = new Person();
+
+var stu1 = new Student(1001);
+console.log(stu1.emotion); //['喜', '怒', '哀', '乐']
+
+stu1.emotion.push('愁');
+console.log(stu1.emotion); //["喜", "怒", "哀", "乐", "愁"]
+
+var stu2 = new Student(1002);
+console.log(stu2.emotion); //["喜", "怒", "哀", "乐", "愁"]
+
+```
+总结：
+    在Person类中添加一个emotion情绪属性，这是一个引用类型的值，我们发现，当修改了stu1的emotion值，再重新实例化学生类，stu2的emotion值也会发生变化。
+    因此我们得出结论，原型上任何类型的属性值都不会通过实例被重写而改变，但是引用类型的属性值会受到实例的影响而修改
+原型链继承的缺点：
+    1. 如果一个实例不小心修改了原型对象上引用类型的值，会导致其他实例也跟着受影响
+    2. 原型链不能实现子类向父类中传参
+
+#### 借用构造函数继承
+```
+    //父类：人
+    function Person () {
+      this.head = '脑袋瓜子';
+      this.emotion = ['喜', '怒', '哀', '乐']; //人都有喜怒哀乐
+    }
+    //子类：学生，继承了“人”这个类
+    function Student(studentID) {
+      this.studentID = studentID;
+      Person.call(this);
+    }
+    
+    //Student.prototype = new Person();
+
+    var stu1 = new Student(1001);
+    console.log(stu1.emotion); //['喜', '怒', '哀', '乐']
+
+    stu1.emotion.push('愁');
+    console.log(stu1.emotion); //["喜", "怒", "哀", "乐", "愁"]
+    
+    var stu2 = new Student(1002);
+    console.log(stu2.emotion); //["喜", "怒", "哀", "乐"]
+```
+注意：借用构造函数继承只是去掉了通过prototype继承的方法，采用Person.call(this)的形式实现继承，通过call的方式，修改Person类中的this指向为当前Student的this，并设置参数
+总结：
+    在stu1 = new Student()构造函数时，是stu1调用Student方法，所以其内部this的值指向的是stu1,所以Person.call(this)就相当于Person.call(stu1),就相当于stu1.Person()。最后，stu1去调用Person方法时，Person内部的this指向就指向了stu1。那么Person内部this上的属性和方法，就都被拷贝到了stu1上，stu2也是同理，所以其实是，每个实例都具有自己的emotion属性副本，他们互不影响。
+    总之，在子类函数中，通过call()方法调用父类函数后，子类实例stu1,可以访问到Student构造函数和Person构造函数里的所有属性和方法。这样就实现了子类向父类传参，而且还解决了原形对象上对引用类型值的误修改操作
+借用构造函数继承缺点：
+    1. 这种形式的继承，每个实例都拷贝一份，占用内存大，尤其是方法过多的时候，不利于函数的复用
+    2. 方法都作为了实例自己的方法，当需求改变，要改动其中的一个方法时，之前所有的实例，他们的该方法都不能及时作出更新，只有后面的实例才能访问到新方法 
