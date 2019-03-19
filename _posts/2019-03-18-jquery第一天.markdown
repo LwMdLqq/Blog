@@ -1,0 +1,121 @@
+---
+layout: post
+title:  "jQuery第一天"
+date:   2019-03-18 10:58:13 +0800
+categories: jekyll update
+---
+
+## jQuery效果-隐藏和显示
+#### 控制元素隐藏：
+    $(selector).hide(speed, callback)
+#### 控制元素显示：
+    $(selector).show(speed, callback)
+#### 使用toggle()方法来切换hide()和show()：
+    $(selector).toggle(speed, callback)
+#### 用于淡入已隐藏的元素
+    $(selector).fadeIn(speed, callback)
+#### 用于淡出可见元素
+    $(selector).fadeOut(speed, callback)
+#### 可以在fadeIn和fadeOut方法之间进行切换
+    $(selector).fadeToggle(speed, callback)
+如果元素已淡出，则fadeToggle()会向元素添加淡入效果
+如果元素已淡入，则fadeToggle()会向元素添加淡出效果
+
+#### 允许渐变为给定的不透明度
+    $(selector).fadeTo(speed, callback)
+注意：
+ 
+    可选的speed参数规定隐藏显示的速度，可以取以下值："slow","fast"或毫秒
+    可选的callback参数是隐藏或显示完成后所执行的函数名称
+
+
+## jQuery效果-滑动
+
+#### 设置向下滑动元素
+$(selector).slideDown(speed, callback)
+#### 设置向上滑动元素
+$(selector).slideUp(speed, callback)
+#### 切换向上滑动元素和向下滑动元素
+$(selector).slideToggle(speed, callback)
+
+
+##　jquery动画-animate方法
+####　创建自定义动画
+$(selector).animate({params}, speed, callback)
+
+
+params参数定义形成动画的css属性
+
+$(button).click(function(){
+    $('div').animate({left: '250px'});
+})
+
+#### 自定义动画-操作多个属性
+$("button").click(function(){
+  $("div").animate({
+    left:'250px',
+    opacity:'0.5',
+    height:'150px',
+    width:'150px'
+  });
+}); 
+
+#### jQuery stop()方法：用于在完成动画之前停止动画或效果
+
+$(selector).stop(stopAll, goToEnd)
+
+
+可选的stopAll参数规定是否应该清楚动画队列。默认是false，即仅停止活动的动画，允许任何排入队列的动画向后执行。
+可选的goToEnd参数规定是否立即完成当前动画。默认是false
+因此，默认地，stop()会清除在被选元素上指定的当前动画
+
+
+## jQuery的Chaining（链接）允许我们在一条语句中允许多个jQuery方法（在相同的元素）
+直到现在，我们都是一次写一条jQuery语句，不过有一种名为链接的技术，允许我们在相同的元素上运行多条jQuery命令，一条接着一条
+例：
+    $("#p1").css("color","red").slideUp(2000).slideDown(2000);
+
+
+## jQuery获取
+三个简单的实用的用于DOM操作的jQuery方法：
+    text() - 设置或返回所选元素的文本内容
+    html() - 设置或返回所选元素的内容（包括HTML标记）
+    val() - 设置或返回表单字段的值
+## jQuery添加
+添加新内容的四个jQuery方法：
+append() - 在被选元素的结尾插入内容（被选元素块内部）
+prepend() - 在被选元素的开头插入内容（被选元素块内部）
+after() - 在被选元素之后插入内容（被选元素块外部）
+before() - 在被选元素之前插入内容（被选元素块外部
+
+
+## jQuery-删除元素
+通过jQuery可以删除已有的HTML元素
+remove() - 删除被选元素（及其子元素）
+empty() - 从被选元素中删除子元素
+
+
+注意：remove()方法也可以接受一个参数，允许您对被删元素进行过滤
+例：$('p').remove('.italic')
+上面例子可以删除class = 'italic的全部p元素'
+
+
+## jQuery操作css
+
+addClass() - 向被选元素添加一个或多个类
+removeClass() - 从被选元素删除一个或多个类
+toggleClass() - 对被选元素进行添加/删除类的切换操作
+css() - 设置或返回样式属性
+
+例：
+    $('p').css('background-color')     // 将返回首个匹配元素的background-color值
+    $("p").css("background-color","yellow")   // 将为所有匹配元素设置background-color值
+
+## jQuery获取尺寸
+width()/height()：设置或返回元素的宽度和高度
+innerWidth()/innerHeight()：设置或返回元素的宽度和高度（包括内边距）
+outerWidth()()/outerHeight()：设置或返回元素的宽度和高度（包括外边距）
+
+## jQuery遍历
+parent()：返回被选元素的直接父元素
+parents()：返回被选元素的所有祖先元素，它一路上直到文档的根元素

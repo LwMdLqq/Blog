@@ -1,0 +1,63 @@
+---
+layout: post
+title:  "前端碎片"
+date:   2019-03-18 10:58:13 +0800
+categories: jekyll update
+---
+
+## 什么是文档碎片？
+类似一个临时的文档，把所有的要加的dom元素先放在这里，达到不要每次都操作dom元素
+#### 碎片例子
+```
+// 普通DOM操作
+var d1 = new Date()
+// 创建十个段落，常规的方式
+for(var i = 0; i < 1000; i++){
+    var p = document.createElement('p');
+    var oTxt = document.createTextNode('段落'+i)
+    p.appendChild(oTxt);
+    document.body.appendChild(p)
+}
+var d2 = new Date()
+document.write('第一次创建需要的时间：'+(d2.getTime()-d1.getTime));
+```
+```
+// 加入文档碎片
+var d3 = new Date()
+var pFragment = document.createDocumentFragment();
+for (var i = 0; i < 1000; i++) {
+    var p = document.createElement('p')
+    var oTxt = document.createTextNode("段落"+i);
+    p.appendChild(oTxt);
+    pFragment.appendChild(p)
+}
+document.body.appendChild(pFragment);
+var d4 = new Date();
+document.write('第2次创建需要的时间：'+(d4.getTime()-d3.getTime()));
+
+```
+
+
+## 文档碎片的作用
+我们首先先来了解一下插入节点时，浏览器会做什么？
+在浏览器中，我们一旦把节点添加到document.body(或者其他的节点)中，页面就会更新并反映出这个变化，对于少量的更新，一条条循环插入也会运行很好，也是我们常用的方法。代码如下：
+```
+for (var i = 0; i < 5; i++) {
+    var op = document.createElement('span')
+    var oTxt = document.createTextNode(i)
+    op.appendChild(oText)
+    document.body.appendChild(op)
+}
+// 但是，如果当我们要向document中添加大量数据时，如果像上面的代码一样，逐条添加节点，这个过程就会非常缓慢
+// 当然，你也可以建个新的节点，比如说div，先将op添加到div上，然后再将div添加到body中，但这样要在body中多添加一个<div></div>，但文档碎片不会产生这种节点
+var oDiv = document.createElement('div')
+for (var i = 0; i < 10000; i++) {
+    var op = document.createElement('span')
+    var oText = document.createTextNode(i)
+    op.appendChild(oText)
+    oDiv.appendChild(op)
+}
+document.body.appendChild(oDiv)
+// 为了解决这个问题，我们可以引入createDocumentFragment()方法，它的作用是创建一个文档碎片，把要插入的新节点先附加在它上面，然后再一次性添加到document中
+
+```
