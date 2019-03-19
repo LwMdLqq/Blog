@@ -61,3 +61,27 @@ document.body.appendChild(oDiv)
 // 为了解决这个问题，我们可以引入createDocumentFragment()方法，它的作用是创建一个文档碎片，把要插入的新节点先附加在它上面，然后再一次性添加到document中
 
 ```
+var oFragmeng = document.createDocumentFragment(); 
+
+
+for(var i=0;i<10000;i++)
+
+{ 
+
+    var op = document.createElement("span"); 
+
+    var oText = document.createTextNode(i); 
+
+    op.appendChild(oText); 
+
+    //先附加在文档碎片中
+
+    oFragmeng.appendChild(op);  
+
+} 
+
+
+//最后一次性添加到document中
+
+document.body.appendChild(oFragmeng); 
+```
