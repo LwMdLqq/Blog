@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "jquery文件上传"
+date:   2019-04-22 10:58:13 +0800
+categories: jekyll update
+---
+
+## 使用jquery插件AjaxFileUpload上传
+
+#### 上传图片的html代码
+```
+<span class="uploadtxt">上传图片：</span>
+  <div class="file-box">
+
+  <div class="uploadImgBtn">
+    <input type="file" class="uploadImg" name="file" id = "file0" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="imgPreview(this)" >
+  </div>      
+</div>
+
+```
+#### 下载AjaxFileUpload.js
+```
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+
+
+```
+
+#### 实现点击上传图片功能
+```
+<script>
+function imgPreview(fileDom) {
+    if(window.FileReader) {
+        var reader = new FileReader();
+    } else {
+        alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+    }
+    //获取文件
+    var file = fileDom.files;
+    var imageType = /^image\//; 
+    
+    $.each(file,function(key,value){
+      //是否是图片
+      if(!imageType.test(value.type)) {
+        alert('请选择图片')
+        return;
+      }
+      
+      var list = $('.file-box .error').find('.image')
+      if ((list.length + 1) > 0 && (list.length + 1) <= 5) {
+        // console.log(list.length)
+        $('.file-box').prepend('<div class="error"><img src="" class="image" alt=""><img src="./images/error.png" class="error2" style="display:none" alt=""></div>')
+        //读取完成
+        reader.onload = function(e) {
+          // 在这里需要发送两次请求
+          // 第一次请求是需要将选择的图片发送到后台数据库，后台获取到图片之后返回给你图片的url和id
+          // 第二次请求是点击提交按钮将选择的图片的id或者url发送给后台，从而实现添加当前商品评论功能
+          $.ajaxFileUpload({
+            url:"/comment/front/uploadFileSun?memberid="+ memberid +"&orderno=" + id + "&gcode="+gcode, //用于文件上传的服务器端请求地址
+            secureuri: false, //一般设置为false
+            fileElementId: 'file0', //文件上传空间的id属性  <input type="file" id="file" name="file" />
+            dataType: 'json', //返回值类型 一般设置为json
+            type: "post",
+            success: function (dbFile){  //服务器成功响应处理函数
+              // 图片路径设置为读取的图片e.target.result
+              var list2 = $('.file-box .error:nth-child('+ (key+1) +') .image')
+              dataimg.push(dbFile.data.id)
+              list2.attr('src', dbFile.data.imgUrl)
+              list2.attr('data-index', key)
+            }
+          })
+          
+        };
+        reader.readAsDataURL(value);
+        
+      } else {
+        alert('您只能选择5张图片！')
+      }
+    })
+
+}
+</script>
+```

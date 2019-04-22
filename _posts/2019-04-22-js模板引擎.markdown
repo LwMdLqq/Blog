@@ -1,0 +1,70 @@
+---
+layout: post
+title:  "js模板引擎"
+date:   2019-04-22 10:58:13 +0800
+categories: jekyll update
+---
+
+## js模板引擎
+
+
+#### 定义容器，循环之后的数据放置的地方
+```
+<div>
+  <ul id="box"></ul>
+</div>
+```
+
+
+#### 引入art-template.js
+```
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+// 定义渲染的模板
+<script id="test" type="text/template">
+  <% for(i=0; i<list2.length; i++){ %>
+    <li class="LI">
+      <img src="<%=list2[i].gphoto %>" alt="">
+      <p title="<%=list2[i].gname %>"><%=list2[i].gname %></p>
+      <p class="comment" data-gcode="<%=list2[i].gcode %>"  data-orderno="<%=list2[i].orderid %>" data-memberid="<%=list2[i].memberid %>">去评价</p>
+    </li>
+  <% } %>
+</script>
+```
+
+
+#### 发送请求，获取到数据，将数据放入到模板里面
+```
+$.ajax({
+  url: '/comment/front/unvaluatedproduct/1.do',
+  type: 'get',
+  data: {
+    orderno: '',
+    plat: '1',
+    currentPage: '1'
+  },
+  dataType: 'json',
+  success: function(msg) {
+    console.log(msg)
+    if (msg.code == '000000') {
+      all = msg.data.countNum
+      var arr = []
+      for (var i = 0; i < msg.data.olist.length; i++) {
+        var obj = {}
+        obj.orderid = msg.data.olist[i].orderid
+        obj.memberid = msg.data.olist[i].memberid
+        for (var j = 0; j < msg.data.olist[i].glists.length; j++) {
+          obj.gcode = msg.data.olist[i].glists[j].gcode
+          obj.gname = msg.data.olist[i].glists[j].gname
+          obj.gphoto = msg.data.olist[i].glists[j].gphoto
+          arr.push(obj)
+        }
+        // data是请求获取到的数据
+        var json_obj = {"list2": arr}
+        var html = template("test",json_obj);
+        document.getElementById('box').innerHTML = html;
+      }
+    }
+  }
+})
+```
