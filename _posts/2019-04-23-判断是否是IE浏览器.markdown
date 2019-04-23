@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "判断IE浏览器"
+date:   2019-03-18 10:58:13 +0800
+categories: jekyll update
+---
+
+
+
+```
+// 做样式兼容问题，如果是ie浏览器就可以制作单独的样式
+function isIE() { //ie?
+    if (!!window.ActiveXObject || "ActiveXObject" in window){
+      console.log('这是IE浏览器')
+      // IE浏览器
+      $('.uploadImgBtn').css("top", "0px")
+      $('.file-box').css('top', "18px")
+    } 
+    }
+  isIE()
+```
