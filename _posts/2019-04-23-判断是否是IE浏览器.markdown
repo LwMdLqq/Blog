@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "判断IE浏览器"
+title:  "IE浏览器的坑"
 date:   2019-03-18 10:58:13 +0800
 categories: jekyll update
 ---
 
 
-
+#### 判断是否是IE浏览器
 ```
 // 做样式兼容问题，如果是ie浏览器就可以制作单独的样式
 function isIE() { //ie?
@@ -19,3 +19,9 @@ function isIE() { //ie?
     }
   isIE()
 ```
+
+
+
+#### IE浏览器不兼容ES6的语法
+注意：`/comment/front/unvaluatedproduct/${num}.do`中的${num}是ES6的语法，IE浏览器不兼容
+如果使用了ES6语法，就会报错“错误的字符”，不会解析出来，并且有可能页面的点击事件和请求都不会有反应

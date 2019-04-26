@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "$(function(){}理解"
+date:   2019-04-26 10:58:13 +0800
+categories: jekyll update
+---
+
+
+#### $(function(){})与window.onload的区别
+
+页面加载完成有两种事件
+1.document.ready,即$(function(){}),表示文档结构已经加载完成（不包含图片等非文字媒体文件）
+2.window.onload,表示页面包含图片等文件在内的所有元素都加载完成
+
+#### 详细介绍
+
+window.onload是在页面所有的元素都加载完成后才触发
+$(function(){})是在页面的dom结构加载完毕之后就触发，dom里的内容不一定都已经加载完成
+比如说一个页面有好多图片，而加载这些图片需要一定的时间
+window.onload必须得等到全部的图片都加载完成后才能触发
+而$(function(){})只要在dom加载完毕之后就会执行，图片不一定已经加载完成
